@@ -18,7 +18,7 @@ spec:
         - name: springboot
           containerPort: 8080      
 ---
-# Node Port Service
+# LoadBalancer Service
 apiVersion: v1
 kind: Service
 metadata:
@@ -26,9 +26,9 @@ metadata:
     name: springboot
   name: springboot
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
-    - port: 8080
+    - port: 80
       targetPort: 8080
   selector:
     name: springboot
@@ -76,3 +76,4 @@ spec:
       targetPort: 27017
   selector:
     name: mongo
+
